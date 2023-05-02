@@ -19,12 +19,30 @@ export interface Pokedex {
       };
     }
   ];
+
   weaknesses: [
     {
-      slot: 2;
-      weaknesses: {
+      slot: 1;
+      weakness: {
+        name: string;
+      };
+    }
+  ];
+
+  moves: [
+    {
+      move: {
         name: string;
       }
     }
   ]
+  stats: [
+    {
+      base_stat: number;
+      stat: {
+        name: string;
+      }
+    }
+  ]
+
 }

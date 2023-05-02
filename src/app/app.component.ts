@@ -29,6 +29,7 @@ export class AppComponent {
   image: string = '001';
   id: number = 1;
   serve: PokedexService = {} as PokedexService;
+  show : boolean = false;
 
   getImage() {
     try {
@@ -76,5 +77,9 @@ export class AppComponent {
     return color;
   }
 
+  showStats()
+  {
+    this.show = !this.show;
+  }
 
 }

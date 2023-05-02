@@ -57,16 +57,40 @@
           </tr>
         </tbody>
       </table>
-      <h5 class="card-text mb-4">
-        Fraquezas:
-        <span
-          [ngStyle]="{ background: getColor(weaknesses.weaknesses.name) }"
-          class="badge rounded-pill me-2"
-          *ngFor="let weaknesses of pokemon.weaknesses"
-        >
-          {{ weaknesses.weaknesses.name | titlecase }}
-        </span>
-      </h5>
+      <button class="btn btn-primary mx-2 my-4" style="width: 110px;" (click)="showStats()">Show stats</button>
+      <table class="table table-striped" [hidden]="!show">
+        <thead>
+          <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let currentStats of pokemon.stats">
+            <td>{{currentStats.stat.name | titlecase}}</td>
+            <td>{{currentStats.base_stat}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title"> Possible moves for {{pokemon.name | titlecase}}</h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Move</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let currentMoves of pokemon.moves; index as i">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{currentMoves.move.name | titlecase}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
